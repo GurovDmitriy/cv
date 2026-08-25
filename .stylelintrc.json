@@ -1,0 +1,32 @@
+{
+  "extends": [
+    "stylelint-config-clean-order",
+    "stylelint-config-html",
+    "stylelint-config-standard",
+    "stylelint-config-standard-scss"
+  ],
+
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "declaration-empty-line-before": [
+      "always",
+      { "ignore": ["after-declaration"], "except": ["first-nested"] }
+    ],
+    "rule-empty-line-before": [
+      "always-multi-line",
+      { "except": ["first-nested"] }
+    ],
+    "scss/operator-no-newline-after": null,
+    "color-hex-length": "long",
+    "selector-class-pattern": "\\w+",
+    "selector-id-pattern": null,
+    "at-rule-no-unknown": null,
+    "at-rule-empty-line-before": null,
+    "custom-property-empty-line-before": null,
+    "function-no-unknown": null,
+    "selector-pseudo-class-no-unknown": null,
+    "font-family-no-duplicate-names": null,
+    "no-empty-source": null,
+    "no-duplicate-selectors": null
+  }
+}

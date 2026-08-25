@@ -1,0 +1,79 @@
+{
+  "name": "cv",
+  "version": "0.0.0",
+  "description": "Personal CV as a living document.",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Dmitriy Gurov",
+    "email": "gurovdmitriy1991@gmail.com",
+    "url": "https://github.com/GurovDmitriy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GurovDmitriy/cv.git"
+  },
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "lint": "npm run typecheck && npm run eslint && npm run prettier && npm run stylelint",
+    "typecheck": "tsc",
+    "eslint": "eslint . --cache",
+    "eslint:fix": "eslint . --fix",
+    "prettier": "prettier --check \"**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts,css,scss,less,md,json,html,yaml,yml,jsonc}\" --ignore-path .prettierignore",
+    "prettier:fix": "prettier --write \"**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts,css,scss,less,md,json,html,yaml,yml,jsonc}\" --ignore-path .prettierignore",
+    "stylelint": "stylelint \"**/*.{css,scss,less}\" --ignore-path .stylelintignore",
+    "stylelint:fix": "stylelint --fix \"**/*.{css,scss,less}\" --ignore-path .stylelintignore",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@docusaurus/core": "3.10.2",
+    "@docusaurus/faster": "3.10.2",
+    "@docusaurus/preset-classic": "3.10.2",
+    "@mdx-js/react": "^3.0.0",
+    "clsx": "^2.0.0",
+    "prism-react-renderer": "^2.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.5.3",
+    "@commitlint/config-conventional": "^20.5.3",
+    "@docusaurus/module-type-aliases": "3.10.2",
+    "@docusaurus/tsconfig": "3.10.2",
+    "@docusaurus/types": "3.10.2",
+    "@eslint/js": "^9.8.0",
+    "@semantic-release/git": "^10.0.1",
+    "@types/react": "^19.0.0",
+    "eslint": "^9.8.0",
+    "eslint-config-prettier": "^10.0.0",
+    "globals": "^17.11.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.3.0",
+    "postcss": "^8.4.5",
+    "prettier": "^3.9.6",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "semantic-release": "^25.0.9",
+    "stylelint": "^17.11.0",
+    "stylelint-config-clean-order": "^8.0.1",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-standard": "^40.0.0",
+    "stylelint-config-standard-scss": "^17.0.0",
+    "stylelint-order": "^8.1.1",
+    "typescript": "~6.0.2",
+    "typescript-eslint": "^8.68.0"
+  },
+  "volta": {
+    "node": "24.19.0"
+  },
+  "engines": {
+    "node": "24.19.0"
+  }
+}

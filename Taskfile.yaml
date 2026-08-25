@@ -1,0 +1,126 @@
+#$schema: https://taskfile.dev/schema.json
+version: "3.17"
+
+tasks:
+  # =========================================
+  # Dev
+  # =========================================
+
+  dev:
+    desc: Start dev server
+    cmds:
+      - npx docusaurus start
+
+  preview:
+    desc: Serve production build
+    cmds:
+      - npx docusaurus serve
+
+  clear:
+    desc: Clear Docusaurus cache
+    cmds:
+      - npx docusaurus clear
+
+  # =========================================
+  # Lint
+  # =========================================
+
+  lint:
+    desc: Lint with ESLint
+    cmds:
+      - npx eslint . --cache
+
+  lint-fix:
+    desc: Lint and auto-fix with ESLint
+    cmds:
+      - npx eslint . --fix
+
+  lint-prettier:
+    desc: Check formatting with Prettier
+    cmds:
+      - npx prettier --check "**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts,css,scss,less,md,json,html,yaml,yml,jsonc}" --ignore-path .prettierignore
+
+  lint-prettier-fix:
+    desc: Auto-format with Prettier
+    cmds:
+      - npx prettier --write "**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts,css,scss,less,md,json,html,yaml,yml,jsonc}" --ignore-path .prettierignore
+
+  lint-stylelint:
+    desc: Check styles with Stylelint
+    cmds:
+      - npx stylelint "**/*.{css,scss,less}" --ignore-path .stylelintignore
+
+  lint-stylelint-fix:
+    desc: Auto-fix styles with Stylelint
+    cmds:
+      - npx stylelint --fix "**/*.{css,scss,less}" --ignore-path .stylelintignore
+
+  typecheck:
+    desc: Type-check the project
+    cmds:
+      - npx tsc
+
+  check:
+    desc: Run all checks (typecheck, lint, prettier, stylelint)
+    cmds:
+      - task: typecheck
+      - task: lint
+      - task: lint-prettier
+      - task: lint-stylelint
+
+  # =========================================
+  # Build
+  # =========================================
+
+  build:
+    desc: Build production bundle
+    cmds:
+      - npx docusaurus build
+
+  # =========================================
+  # Docusaurus
+  # =========================================
+
+  swizzle:
+    desc: Swizzle Docusaurus components
+    cmds:
+      - npx docusaurus swizzle {{.CLI_ARGS}}
+
+  write-translations:
+    desc: Write translation files
+    cmds:
+      - npx docusaurus write-translations
+
+  write-heading-ids:
+    desc: Write heading IDs
+    cmds:
+      - npx docusaurus write-heading-ids
+
+  deploy:
+    desc: Deploy to GitHub Pages
+    cmds:
+      - npx docusaurus deploy
+
+  # =========================================
+  # Release
+  # =========================================
+
+  release-dry-run:
+    desc: Dry-run semantic-release (no tag/release created)
+    cmds:
+      - npx semantic-release --dry-run
+
+  # =========================================
+  # Scripts
+  # =========================================
+
+  sc-generate-ignore:
+    desc: Generate ignore files from config
+    cmds:
+      - node scripts/ignorefiles/generate.mjs
+
+  sc-check-ignore-sync:
+    desc: Check ignore files are in sync
+    cmds:
+      - node scripts/ignorefiles/generate.mjs
+      - git diff --exit-code .prettierignore .stylelintignore || (echo "Ignore files out of sync. Run task sc-generate-ignore and commit." && exit 1)

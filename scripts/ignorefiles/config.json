@@ -1,0 +1,15 @@
+{
+  "prettier": [],
+  "stylelint": [
+    "# Playwright",
+    "playwright-report/",
+    "test-results/",
+    "playwright/.cache/",
+    "traces/",
+    "screenshots/",
+    "videos/",
+    "*.mp4",
+    "*.webm",
+    "__screenshots__/"
+  ]
+}

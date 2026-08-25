@@ -1,0 +1,5 @@
+{
+  "*": "prettier --ignore-unknown --write",
+  "**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}": "eslint --fix",
+  "**/*.{css,scss,less}": "stylelint --fix --allow-empty-input"
+}
