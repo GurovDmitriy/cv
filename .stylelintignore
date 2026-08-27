@@ -109,16 +109,11 @@ pkg/
 
 # Git
 .git/
-.gitignore
 
 # Docker files themselves
 .dockerignore
 Dockerfile*
 docker-compose*
-
-# License and readme
-LICENSE
-README.md
 
 # Dependencies
 /node_modules
